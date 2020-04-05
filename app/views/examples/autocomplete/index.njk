@@ -187,7 +187,7 @@
           if (query === '') {
             results = municipalities
           } else {
-            var term = replaceDiacritics(query).toLowerCase();
+            var term = replaceDiacritics(query.replace(/[ -]+/g, ' ')).toLowerCase();
 
             for (var i = 0; i < municipalities.length && results.length < 50; i++) {
               var municipality = MUNICIPALITY_TO_UPSVR[i];
