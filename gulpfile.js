@@ -15,12 +15,15 @@ require('./tasks/gulp/watch.js')
 require('./tasks/gulp/copy-to-destination.js')
 require('./tasks/gulp/asset-version.js')
 require('./tasks/gulp/sassdoc.js')
+require('./tasks/gulp/autocomplete.js')
+
 
 // Umbrella scripts tasks for preview ---
 // Runs js lint and compilation
 // --------------------------------------
 gulp.task('scripts', gulp.series(
-  'js:compile'
+  'js:compile',
+  'js:compile-autocomplete',
 ))
 
 // Umbrella styles tasks for preview ----
@@ -28,7 +31,8 @@ gulp.task('scripts', gulp.series(
 // --------------------------------------
 gulp.task('styles', gulp.series(
   'scss:lint',
-  'scss:compile'
+  'scss:compile',
+  'scss:compile-autocomplete',
 ))
 
 // Copy assets task ----------------------
